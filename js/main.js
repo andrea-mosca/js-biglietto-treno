@@ -13,7 +13,10 @@ const utentKm = parseInt(prompt("inserisci il numero di Km da percorrere", "50")
 const utentAge = parseInt(prompt("inserisci la tua età", "18"));
 const eurForKm = utentKm * 0.21;
 let ticketPrice = eurForKm;
-// SCRIPT 
+
+
+// ----SCRIPT----
+
 // se l'utente è minorenne avrà uno sconto del 20%
 if (utentAge < 18){
     ticketPrice = eurForKm * 0.8;
@@ -23,5 +26,14 @@ else if(utentAge>65){
     ticketPrice= eurForKm * 0.6;
 }
 
-alert("il prezzo del tuo biglietto è di " + ticketPrice.toFixed(2) + "€" )
+// se c'è un errore nell'inserimento dei dati, avverti l'utente
+if (isNaN(utentAge)){
+    alert("inserire l'età in valore numerico come da esempio")
+}else if(isNaN(utentKm)){
+    alert("inserire i Km da percorrere in valore numerico come da esempio")
+}
+// se è tutto corretto, mostra il prezzo
+else{
+    alert("il prezzo del tuo biglietto è di " + ticketPrice.toFixed(2) + "€" )
+}
 
